@@ -1,24 +1,36 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Image} from 'react-native';
 import SearchableDropdown from 'react-native-searchable-dropdown';
 
 
-const items = [
-  { id: 1, name: 'Vishnu prabhalan-964599XXXX' },
-  { id: 2, name: 'Vinodh K-855320XXXX' },
-  { id: 3, name: 'Sreejith S-980961XXXX' },
-  { id: 4, name: 'Sarthak Pujari-955623XXXX' },
-  { id: 5, name: 'Rohit-811303XXXX' },
-  { id: 6, name: 'Raghavendra Nairy-984429XXXX' },
-  { id: 7, name: 'Prasanna Acharaya-741107XXXX' },  
+var items = [
+  { name: 'Vishnu prabhalan-964599XXXX' },
+  { name: 'Vinodh K-855320XXXX' },
+  { name: 'Sreejith S-980961XXXX' },
+  { name: 'Sarthak Pujari-955623XXXX' },
+  { name: 'Rohit-811303XXXX' },
+  { name: 'Raghavendra Nairy-984429XXXX' },
+  { name: 'Prasanna Acharaya-741107XXXX' },
+  { name: 'Girish K V-984492XXXX' },
+  { name: 'Dinesh Naik-973116XXXX' },
+  { name: 'Arya Regunath-830101XXXX' },
+  { name: 'Arogya Justin-953522XXXX' },
+  { name: 'Abraham George-944771XXXX' }
 ];
 
 export default class Home extends Component {
-    render() {
-      return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedItems: []
+    }
+  }
+  render() {
+    return (
+      <Fragment>
         <View style={{ flex: 1 }}>
           <Text style={{paddingHorizontal: 30,textAlign:'right', marginTop:10,
-          fontWeight:'bold',fontSize: 16}}> STEP  1/6 </Text>   
+              fontWeight:'bold',fontSize: 16}}> STEP  1/7 </Text>   
             <View>
               <Image
                 style={{
@@ -37,15 +49,17 @@ export default class Home extends Component {
               Employee Contact Number*
             </Text>
               <SearchableDropdown
-                onTextChange={(text) => console.log(text)}
-                onItemSelect={(item) => JSON.stringify(item)}
+                multi={true}
+                selectedItems={this.state.selectedItems}
+                onItemSelect={(item) => {
+                  const items = this.state.selectedItems;
+                  items.push(item)
+                  this.setState({ selectedItems: items });
+                }}
                 containerStyle={{ padding: 5 }}
-                textInputStyle={{
-                  padding: 12,
-                  borderWidth: 1,
-                  borderColor: '#ccc',
-                  backgroundColor: '#FAF7F6',
-                  borderRadius: 5,
+                onRemoveItem={(item, index) => {
+                  const items = this.state.selectedItems.filter((sitem) => sitem.id !== item.id);
+                  this.setState({ selectedItems: items });
                 }}
                 itemStyle={{
                   padding: 10,
@@ -55,27 +69,24 @@ export default class Home extends Component {
                   borderWidth: 1,
                   borderRadius: 5,
                 }}
-                itemTextStyle={{
-                  color: '#222',
-                }}
-                itemsContainerStyle={{
-                  maxHeight: '60%',
-                }}
+                itemTextStyle={{ color: '#222' }}
+                itemsContainerStyle={{ maxHeight: 140 }}
                 items={items}
-                defaultIndex={2}
+                defaultIndex={12}
+                chip={true}
                 resetValue={false}
                 textInputProps={
-                  {
-                    placeholder: "Select Employee Name or PhoneNumber",
-                    underlineColorAndroid: "transparent",
-                    style: {
-                        padding: 12,
-                        borderWidth: 1,
-                        borderColor: '#ccc',
-                        borderRadius: 5,
-                    },
-                    onTextChange: text => alert(text)
-                  }
+                {
+                placeholder: "Select Employee Name and PhoneNumber",
+                underlineColorAndroid: "transparent",
+                style: {
+                    padding: 12,
+                    borderWidth: 1,
+                    borderColor: '#ccc',
+                    borderRadius: 5,
+                },
+                // onTextChange: text => alert(text)
+                }
                 }
                 listProps={
                   {
@@ -85,16 +96,17 @@ export default class Home extends Component {
               />
                 <View style={{ flex: 1 }}>
                   <TouchableOpacity
-                    style = {styles.submitButton}
-                    onPress={() => this.props.navigation.navigate('Camera')}>
+                      style = {styles.submitButton}
+                      onPress={() => this.props.navigation.navigate('Camera')}>
                     <Text style = {styles.submitButtonText}> Next </Text>
                   </TouchableOpacity>
                 </View>
         </View>
-      );
-    }
-
+      </Fragment>
+    );
+  }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -107,18 +119,15 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontWeight: 'bold',
   },
-  headingText: {
-    paddingRight: 8,
-  },
   submitButton: {
     backgroundColor: '#40e0d0',
     borderRadius: 10,
     padding: 10,
-    margin: 10,
+    margin: 5,
     height: 40,
- },
- submitButtonText:{
-    color: '#000000',
-    textAlign: 'center',
- }
+  },
+  submitButtonText:{
+      color: '#000000',
+      textAlign: 'center',
+  }
 });

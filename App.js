@@ -10,6 +10,7 @@ import ProfileForms from './screens/ProfileForms';
 import ProfileForms1 from './screens/ProfileForms1';
 import ProfileForms2 from './screens/ProfileForms2';
 import ThankYou from './screens/ThankYou';
+import CheckOut from './screens/CheckOut';
 
 import 'react-native-gesture-handler';
 
@@ -28,6 +29,7 @@ export default class App extends Component{
           <AppStack.Screen name="ProfileForms" component={ProfileForms} />
           <AppStack.Screen name="ProfileForms1" component={ProfileForms1} />
           <AppStack.Screen name="ProfileForms2" component={ProfileForms2} />
+          <AppStack.Screen name="CheckOut" component={CheckOut} />
           <AppStack.Screen name="ThankYou" component={ThankYou} />
         </AppStack.Navigator>
       </NavigationContainer>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
-import { Card, Title, Paragraph } from 'react-native-paper';
+import { Card, Title} from 'react-native-paper';
 import FlipToggle from 'react-native-flip-toggle-button';
 
 
@@ -8,21 +8,21 @@ export default class ProfileForms extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      isSwitch10n: false,
-      isSwitch20n: false,
-      isSwitch30n: false,
-      isSwitch40n: false,
-      isSwitch50n: false,
-      isSwitch60n: false,
-      isSwitch70n: false,
-      isSwitch80n: true,
+      isSwitch10n: {isSwitch10n: false},
+      isSwitch20n: {isSwitch20n: false},
+      isSwitch30n: {isSwitch30n: false},
+      isSwitch40n: {isSwitch40n: false},
+      isSwitch50n: {isSwitch50n: false},
+      isSwitch60n: {isSwitch60n: false},
+      isSwitch70n: {isSwitch70n: false},
+      isSwitch80n: {isSwitch80n: true},
     };
   }
   render(){
       return(
       <ScrollView>
         <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-              fontWeight:'bold', fontSize: 16}}> STEP  3/6 </Text> 
+              fontWeight:'bold', fontSize: 16}}> STEP  3/7 </Text> 
               <Card style={styles.cardContainer}>
                 <Title style= {styles.cardTitle}>Do you have any of the following symptoms?.</Title>
                       <View style= {{paddingLeft: 20, flexDirection: 'row', justifyContent: 'space-between', 
@@ -40,28 +40,28 @@ export default class ProfileForms extends Component{
                             this.setState({ isSwitch1On: value });
                           }}
                           onToggleLongPress={() => {
-                            console.log(' Long Press');
+                            console.log('Long Press');
                           }}
                         />
                       </View>
                       <View style= {{paddingLeft: 20, flexDirection: 'row', justifyContent: 'space-between', 
                                         marginHorizontal: 1, marginTop: 10, marginBottom:15}}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15}}>Cough{' '}</Text>
-                      <FlipToggle
-                        value={this.state.isSwitch2On}
-                        buttonWidth={50}
-                        buttonHeight={22}
-                        buttonRadius={46}
-                        onLabel={'Yes     '}
-                        offLabel={'     No'}
-                        labelStyle={{ color: '#00ff00' }}
-                        onToggle={(value) => {
-                          this.setState({ isSwitch2On: value });
-                        }}
-                        onToggleLongPress={() => {
-                          console.log('Long Press');
-                        }}
-                      />
+                          <FlipToggle
+                            value={this.state.isSwitch2On}
+                            buttonWidth={50}
+                            buttonHeight={22}
+                            buttonRadius={46}
+                            onLabel={'Yes     '}
+                            offLabel={'     No'}
+                            labelStyle={{ color: '#00ff00' }}
+                            onToggle={(value) => {
+                              this.setState({ isSwitch2On: value });
+                            }}
+                            onToggleLongPress={() => {
+                              console.log('Long Press');
+                            }}
+                          />
                     </View>
                     <View style= {{paddingLeft: 20, flexDirection: 'row', justifyContent: 'space-between', 
                                     marginHorizontal: 1, marginTop: 10, marginBottom:15}}>

@@ -27,12 +27,6 @@ export default class Welcome extends Component{
                     onPress={() => this.props.navigation.navigate('Home')}>
                     <Text style = {styles.submitButtonText}> Check In </Text>
                 </TouchableOpacity>
-                <View style = {styles.textSpace}>
-                </View>
-                <TouchableOpacity
-                    style = {styles.submitButton}>
-                    <Text style = {styles.submitButtonText}> Check Out </Text>
-                </TouchableOpacity>
                 </View>
             </ScrollView>
         );

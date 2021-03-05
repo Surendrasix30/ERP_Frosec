@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
   ScrollView,
   TouchableOpacity
 } from 'react-native';
@@ -13,8 +14,21 @@ export default class ProfileDetails extends Component {
     return (
       <ScrollView>
         <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-          fontWeight:'bold',fontSize: 16}}> STEP  2/6 </Text>   
+          fontWeight:'bold',fontSize: 16}}> STEP  2/7 </Text>   
             <View style={styles.container}>
+                <View>
+                  <Image
+                    style={{
+                      flexDirection: 'row',
+                      resizeMode: "center",
+                      height: 100,
+                      width: 200,
+                      left: 70,
+                    }}
+                    size={100}
+                    source={require("../Images/logo.png")}
+                  />       
+                </View>
                 <View style={{ alignItems: 'center' }}>
                   <View
                     style={{
@@ -52,7 +66,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textFormat:{
-    paddingTop: 20,
+    paddingTop: 10,
     paddingBottom: 20,
     fontWeight: 'bold',
     fontSize: 16

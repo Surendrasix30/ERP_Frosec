@@ -12,7 +12,7 @@ export default class Camera extends Component {
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
+          // flashMode={RNCamera.Constants.FlashMode.on}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera',
@@ -21,11 +21,14 @@ export default class Camera extends Component {
           }}
         />
         <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture.bind(this)} onPress={() => this.props.navigation.navigate('ProfileDetails')} style={styles.capture}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} style={styles.buttoncapture}>
+            <Text style={{ fontSize: 16 }}> Cancel </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
             <Text style={{ fontSize: 16 }}> Click </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.capture} onPress={() => this.props.navigation.navigate('Home')}>
-            <Text style={{ fontSize: 16 }}> Cancel </Text>
+          <TouchableOpacity style={styles.buttoncapture} onPress={() => this.props.navigation.navigate('ProfileDetails')}>
+            <Text style={{ fontSize: 16 }}> Next </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  capture: {
+  buttoncapture: {
     flex: 0,
     backgroundColor: '#fff',
     borderRadius: 50,
@@ -61,4 +64,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
   },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 100,
+    paddingLeft: 12,
+    paddingRight: 12,
+    padding: 20,
+    paddingHorizontal: 1,
+    alignSelf: 'center',
+    margin: 20,
+  }
 });

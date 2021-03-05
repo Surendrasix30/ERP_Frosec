@@ -8,17 +8,17 @@ export default class ProfileForms1 extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      isSwitch10n: false,
-      isSwitch20n: false,
-      isSwitch30n: false,
-      isSwitch40n: true,
+      isSwitch10n: {isSwitch10n: false},
+      isSwitch20n: {isSwitch20n: false},
+      isSwitch30n: {isSwitch30n: false},
+      isSwitch40n: {isSwitch40n: true}
     };
   }
   render(){
       return(
       <ScrollView>
         <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-              fontWeight:'bold', fontSize: 16}}> STEP  4/6 </Text> 
+              fontWeight:'bold', fontSize: 16}}> STEP  4/7 </Text> 
             <Card style={styles.cardContainer}>
               <Title style= {styles.cardTitle}>Have you visited the following in the last 14 days?.</Title>
                 <View style= {{paddingLeft: 20, flexDirection: 'row', justifyContent: 'space-between', 

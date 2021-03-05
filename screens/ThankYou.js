@@ -1,26 +1,43 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text,  View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { StyleSheet, Text,  View, Image} from 'react-native';
 
 export default class ThankYou extends Component{
     render(){
         return(
             <View style={styles.container}>
                 <Text style={{paddingHorizontal: 30,textAlign:'right', marginTop:10,
-                    fontWeight:'bold', fontSize: 16}}> STEP  6/6 </Text>   
+                    fontWeight:'bold', fontSize: 16}}> STEP  7/7 </Text> 
+                    <View>
+                        <Image
+                            style={{
+                            flexDirection: 'row',
+                            resizeMode: "center",
+                            height: 100,
+                            width: 200,
+                            left: 72,
+                            }}
+                            size={100}
+                            source={require("../Images/logo.png")}
+                        />       
+                    </View>   
                 <View style={styles.iconButton}>
-                <Icon.Button
-                      name="check-all"
-                      size={50}
-                />
+                <View>
+                    <Image
+                        style={{
+                        marginTop: 10,
+                        paddingRight: 200,
+                        resizeMode: "center",
+                        height: 80,
+                        width: 20,
+                        right: 5,
+                        }}
+                        size={100}
+                        source={require("../Images/check.png")}
+                    />       
                 </View>
-                <Text style={styles.titleText}>Check In Success</Text>
-                <TouchableOpacity
-                    style = {styles.submitButton}
-                    onPress={() => this.props.navigation.navigate('Welcome')}>
-                    <Text style = {styles.submitButtonText}> Cancel </Text>
-                  </TouchableOpacity>
+                </View>
+                <Text style={styles.titleText}>Check Out Successfully</Text>
+                <Text style={styles.titleText1}>Thankyou For Your Information.</Text>
             </View>
         );
     }
@@ -32,20 +49,27 @@ const styles = StyleSheet.create({
         flex:1,
     },
     titleText:{
-    color: '#008000',
-    fontWeight: 'bold',
-    justifyContent: "center",
-    paddingLeft: 70,
-    fontSize: 25,
-    paddingBottom: 70,
+        color: '#008000',
+        fontWeight: 'bold',
+        justifyContent: "center",
+        paddingLeft: 40,
+        paddingBottom: 15,
+        fontSize: 25,
+    },
+    titleText1:{
+        color: '#008000',
+        fontWeight: 'bold',
+        justifyContent: "center",
+        paddingLeft: 20,
+        fontSize: 23,
     },
     iconButton:{
-    paddingTop: 210,
-    alignItems: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    color: '#008000',
-    fontSize: 22,
+        paddingTop: 120,
+        alignItems: "center",
+        justifyContent: "center",
+        alignItems: "center",
+        color: '#008000',
+        fontSize: 22,
     },
     submitButton: {
         backgroundColor: '#40e0d0',
@@ -58,6 +82,6 @@ const styles = StyleSheet.create({
       submitButtonText:{
         color: '#000000',
         textAlign: 'center',
-      }
+    }
 }
 );

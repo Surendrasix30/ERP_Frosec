@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   TouchableHighlight,
-  ScrollView
+  ScrollView,
+  Image
 } from 'react-native';
 
 import SignatureCapture from 'react-native-signature-capture';
@@ -18,7 +19,20 @@ export default class ProfileForms2 extends Component {
       <ScrollView>
       <View style={styles.container}>
       <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-              fontWeight:'bold', fontSize: 16}}> STEP  5/6 </Text> 
+              fontWeight:'bold', fontSize: 16}}> STEP  5/7 </Text>
+              <View>
+                  <Image
+                    style={{
+                      flexDirection: 'row',
+                      resizeMode: "center",
+                      height: 100,
+                      width: 200,
+                      left: 70,
+                    }}
+                    size={100}
+                    source={require("../Images/logo.png")}
+                  />       
+              </View> 
           <Text style={styles.infoText}>      I Vishnu Prabhalan, company Six30 Labs declare that I haven’t travelled to China and other virus affected countries in the last 28 days.</Text>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <Text style={styles.signText}>Sign Below</Text>
@@ -51,8 +65,8 @@ export default class ProfileForms2 extends Component {
               </View>
             <TouchableOpacity
                 style = {styles.submitButton}
-                onPress={() => this.props.navigation.navigate('ThankYou')}>
-                <Text style = {styles.submitButtonText}> Next </Text>
+                onPress={() => this.props.navigation.navigate('CheckOut')}>
+                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
         </View>
       </ScrollView>
@@ -105,8 +119,8 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     fontWeight:'bold',
     fontSize: 16,
-    paddingTop: 50,
-    paddingBottom: 20,
+    paddingTop: 30,
+    paddingBottom: 10,
   },
   signText: {
     flex:1,
