@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
-import { Card, Title, Paragraph } from 'react-native-paper';
+import { Card, Title} from 'react-native-paper';
 import FlipToggle from 'react-native-flip-toggle-button';
+import { ListItem } from 'react-native-elements';
 
 
 export default class ProfileForms1 extends Component{
@@ -18,12 +19,12 @@ export default class ProfileForms1 extends Component{
       return(
       <ScrollView>
         <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-              fontWeight:'bold', fontSize: 16}}> STEP  4/7 </Text> 
+              fontWeight:'bold', fontSize: 16}}> STEP  4/6 </Text> 
             <Card style={styles.cardContainer}>
               <Title style= {styles.cardTitle}>Have you visited the following in the last 14 days?.</Title>
-                <View style= {{paddingLeft: 20, flexDirection: 'row', justifyContent: 'space-between', 
-                            marginHorizontal: 1, marginTop: 30, marginBottom:15}}>
-                <Text style={{ fontWeight: 'bold', fontSize: 15}}>Any Hot Spots of India</Text>
+              <ListItem bottomDivider style={{ margin: 1 }}>
+                <View style= {{ flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style={{ paddingRight: 90, flexDirection: 'row', fontWeight: 'bold', fontSize: 14}}>Any Hot Spots of India</Text>
                   <FlipToggle
                     value={this.state.isSwitch1On}
                     buttonWidth={50}
@@ -31,7 +32,7 @@ export default class ProfileForms1 extends Component{
                     buttonRadius={46}
                     onLabel={'Yes     '}
                     offLabel={'     No'}
-                    labelStyle={{ color: '#00ff00' }}
+                    labelStyle={{ color: '#fffacd' }}
                     onToggle={(value) => {
                       this.setState({ isSwitch1On: value });
                     }}
@@ -40,8 +41,10 @@ export default class ProfileForms1 extends Component{
                     }}
                   />
               </View>
-              <Text style={{marginLeft:20, fontWeight: 'bold', fontSize: 15, paddingTop: 12}}>Any Containment Zones / Hot Spots of Karnataka</Text>
-                <View style= {{paddingLeft: 255}}>   
+              </ListItem>
+              <ListItem bottomDivider style={{ margin: 1 }}>
+                <View style= {{ flexDirection: 'row', justifyContent: 'space-between', paddingRight: 90}}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 14}}>Any Containment Zones / Hot Spots of Karnataka</Text>  
                     <FlipToggle
                       value={this.state.isSwitch2On}
                       buttonWidth={50}
@@ -49,7 +52,7 @@ export default class ProfileForms1 extends Component{
                       buttonRadius={46}
                       onLabel={'Yes     '}
                       offLabel={'     No'}
-                      labelStyle={{ color: '#00ff00' }}
+                      labelStyle={{ color: '#fffacd' }}
                       onToggle={(value) => {
                         this.setState({ isSwitch2On: value });
                       }}
@@ -58,8 +61,10 @@ export default class ProfileForms1 extends Component{
                       }}
                     />
               </View>
-              <Text style={{marginLeft:20, fontWeight: 'bold', fontSize: 15, paddingTop: 12}}>Any Containment Zones / Hot Spots of Bengaluru</Text>
-                      <View style= {{paddingLeft: 255}}>
+              </ListItem>
+              <ListItem bottomDivider style={{ margin: 1 }}>
+                <View style= {{ flexDirection: 'row', justifyContent: 'space-between', paddingRight: 90}}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 14}}>Any Containment Zones / Hot Spots of Bengaluru</Text>
                     <FlipToggle
                       value={this.state.isSwitch3On}
                       buttonWidth={50}
@@ -67,7 +72,7 @@ export default class ProfileForms1 extends Component{
                       buttonRadius={46}
                       onLabel={'Yes     '}
                       offLabel={'     No'}
-                      labelStyle={{ color: '#00ff00' }}
+                      labelStyle={{ color: '#fffacd' }}
                       onToggle={(value) => {
                         this.setState({ isSwitch3On: value });
                       }}
@@ -75,9 +80,10 @@ export default class ProfileForms1 extends Component{
                         console.log('Long Press');
                       }}
                     />
-              </View>
-              <Text style={{marginLeft:20, fontWeight: 'bold', fontSize: 15, paddingTop: 12}}>Have you checked your body temperature?</Text>
-                    <View style= {{paddingLeft: 255}}>
+                </View>
+              </ListItem>              
+              <View style= {{ flexDirection: 'row', justifyContent: 'space-between', paddingRight: 55, marginTop:15}}>
+                  <Text style={{ fontWeight: 'bold', fontSize: 14, paddingLeft: 15}}>Have you checked your body temperature?</Text>
                       <FlipToggle
                         value={this.state.isSwitch4On}
                         buttonWidth={50}
@@ -85,7 +91,7 @@ export default class ProfileForms1 extends Component{
                         buttonRadius={46}
                         onLabel={'Yes     '}
                         offLabel={'     No'}
-                        labelStyle={{ color: '#00ff00' }}
+                        labelStyle={{ color: '#fffacd' }}
                         onToggle={(value) => {
                           this.setState({ isSwitch4On: value });
                         }}
@@ -93,7 +99,7 @@ export default class ProfileForms1 extends Component{
                           console.log('Long Press');
                         }}
                       />
-              </View>
+                </View>
             </Card>        
             <TouchableOpacity
               style = {styles.submitButton}

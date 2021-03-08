@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Image} from 'react-native';
-import SearchableDropdown from 'react-native-searchable-dropdown';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
 
 var items = [

@@ -4,27 +4,12 @@ import { StyleSheet, Text,  View, Image} from 'react-native';
 export default class ThankYou extends Component{
     render(){
         return(
-            <View style={styles.container}>
-                <Text style={{paddingHorizontal: 30,textAlign:'right', marginTop:10,
-                    fontWeight:'bold', fontSize: 16}}> STEP  7/7 </Text> 
-                    <View>
-                        <Image
-                            style={{
-                            flexDirection: 'row',
-                            resizeMode: "center",
-                            height: 100,
-                            width: 200,
-                            left: 72,
-                            }}
-                            size={100}
-                            source={require("../Images/logo.png")}
-                        />       
-                    </View>   
+            <View style={styles.container}> 
                 <View style={styles.iconButton}>
                 <View>
                     <Image
                         style={{
-                        marginTop: 10,
+                        marginTop: 130,
                         paddingRight: 200,
                         resizeMode: "center",
                         height: 80,
@@ -52,7 +37,7 @@ const styles = StyleSheet.create({
         color: '#008000',
         fontWeight: 'bold',
         justifyContent: "center",
-        paddingLeft: 40,
+        paddingLeft: 50,
         paddingBottom: 15,
         fontSize: 25,
     },

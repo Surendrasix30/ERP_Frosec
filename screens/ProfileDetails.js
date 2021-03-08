@@ -10,25 +10,12 @@ import {
 import { Avatar } from 'react-native-paper';
 
 export default class ProfileDetails extends Component {
-  render(){
+  render(props){
     return (
       <ScrollView>
         <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-          fontWeight:'bold',fontSize: 16}}> STEP  2/7 </Text>   
-            <View style={styles.container}>
-                <View>
-                  <Image
-                    style={{
-                      flexDirection: 'row',
-                      resizeMode: "center",
-                      height: 100,
-                      width: 200,
-                      left: 70,
-                    }}
-                    size={100}
-                    source={require("../Images/logo.png")}
-                  />       
-                </View>
+          fontWeight:'bold',fontSize: 16}}> STEP  2/6 </Text>   
+            <View style={styles.container}>            
                 <View style={{ alignItems: 'center' }}>
                   <View
                     style={{
@@ -42,7 +29,8 @@ export default class ProfileDetails extends Component {
                     }}>
                     <Avatar.Image
                       size={150}
-                      source={require('../Images/user.png')}/>      
+                      source={{uri: this.props.route.params.uri}}
+                      />      
                   </View>
                     <Text style={styles.textFormat}> Name: Vishnu Prabhalan </Text>
                     <Text style={styles.textFormat}> Contact No(Mobile): 964599XXXX </Text>

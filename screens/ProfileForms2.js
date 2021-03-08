@@ -7,32 +7,33 @@ import {
   StyleSheet,
   TouchableHighlight,
   ScrollView,
-  Image
+  Alert
 } from 'react-native';
 
 import SignatureCapture from 'react-native-signature-capture';
 
 export default class ProfileForms2 extends Component {
+  createAlert = () =>
+    Alert.alert(
+      "six30.frosec.com says",
+      "Are you sure?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => this.props.navigation.navigate("Home"),
+          style: "cancel"
+        },
+        { text: "Ok", onPress: () => this.props.navigation.navigate("CheckIn") }
+      ],
+      { cancelable: false }
+    );
   render(){
     return (
         <SafeAreaView>
       <ScrollView>
       <View style={styles.container}>
       <Text style={{paddingHorizontal: 30, textAlign:'right', marginTop:10,
-              fontWeight:'bold', fontSize: 16}}> STEP  5/7 </Text>
-              <View>
-                  <Image
-                    style={{
-                      flexDirection: 'row',
-                      resizeMode: "center",
-                      height: 100,
-                      width: 200,
-                      left: 70,
-                    }}
-                    size={100}
-                    source={require("../Images/logo.png")}
-                  />       
-              </View> 
+              fontWeight:'bold', fontSize: 16, paddingBottom: 50}}> STEP  5/6 </Text>
           <Text style={styles.infoText}>      I Vishnu Prabhalan, company Six30 Labs declare that I haven’t travelled to China and other virus affected countries in the last 28 days.</Text>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <Text style={styles.signText}>Sign Below</Text>
@@ -53,19 +54,12 @@ export default class ProfileForms2 extends Component {
 
                 <View style={{ flex: 1, flexDirection: "row" }}>
                     <TouchableHighlight style={styles.buttonStyle}
-                        onPress={() => { this.saveSign() } } >
-                        <Text>Save</Text>
-                    </TouchableHighlight>
-
-                    <TouchableHighlight style={styles.buttonStyle}
                         onPress={() => { this.resetSign() } } >
                         <Text>Reset</Text>
                     </TouchableHighlight>
                 </View>
               </View>
-            <TouchableOpacity
-                style = {styles.submitButton}
-                onPress={() => this.props.navigation.navigate('CheckOut')}>
+            <TouchableOpacity style = {styles.submitButton} onPress={this.createAlert}>
                 <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
         </View>
@@ -73,9 +67,6 @@ export default class ProfileForms2 extends Component {
       </SafeAreaView>
     );
   }
-  saveSign() {
-    this.refs["sign"].saveImage();
-}
 
 resetSign() {
     this.refs["sign"].resetImage();
